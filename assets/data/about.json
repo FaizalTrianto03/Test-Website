@@ -1,0 +1,83 @@
+{
+  "title": "About This Platform",
+  "description": "Learn more about our mobile development learning platform.",
+  "breadcrumb": [
+    {
+      "title": "Home",
+      "url": "/index.html"
+    },
+    {
+      "title": "About",
+      "url": "/pages/about.html"
+    }
+  ],
+  "components": [
+    {
+      "type": "hero",
+      "id": "about-hero",
+      "data": {
+        "title": "Tentang Platform Pembelajaran",
+        "subtitle": "Modul Praktikum Mobile Development",
+        "description": "Platform pembelajaran sederhana untuk praktikum pengembangan aplikasi Android di Laboratorium Informatika UMM.",
+        "buttons": [
+          {
+            "text": "Mulai Belajar",
+            "url": "/modules.html",
+            "icon": "fas fa-play",
+            "primary": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "id": "about-description",
+      "data": {
+        "content": "<h2 class='text-2xl font-bold mb-4'>Tentang Platform Ini</h2><p class='mb-4'>Platform pembelajaran ini dibuat untuk membantu mahasiswa mempelajari pengembangan aplikasi Android melalui modul-modul praktikum yang terstruktur.</p><p class='mb-4'>Setiap modul dirancang dengan pendekatan praktis, dilengkapi contoh kode dan latihan yang dapat langsung dipraktikkan.</p>",
+        "align": "left",
+        "size": "base"
+      }
+    },
+    {
+      "type": "card",
+      "id": "simple-features",
+      "data": {
+        "title": "Yang Tersedia",
+        "columns": 2,
+        "cards": [
+          {
+            "title": "6 Modul Pembelajaran",
+            "description": "Modul praktikum dari dasar hingga lanjutan untuk pengembangan aplikasi Android.",
+            "image": null,
+            "buttons": []
+          },
+          {
+            "title": "Contoh Kode",
+            "description": "Setiap materi dilengkapi dengan contoh kode yang bisa langsung dicoba.",
+            "image": null,
+            "buttons": []
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "id": "developer-info",
+      "data": {
+        "content": "<h2 class='text-2xl font-bold mb-4'>Developer</h2><p class='mb-4'>Platform ini dikembangkan oleh <strong>Faizal Qadri Trianto</strong> untuk Laboratorium Informatika Universitas Muhammadiyah Malang sebagai media pembelajaran praktikum mobile development.</p>",
+        "align": "left",
+        "size": "base"
+      }
+    },
+    {
+      "type": "alert",
+      "id": "contact-info",
+      "data": {
+        "type": "info",
+        "title": "Butuh Bantuan?",
+        "content": "Jika ada pertanyaan atau kendala dalam menggunakan platform ini, silakan hubungi tim laboratorium.",
+        "dismissible": true
+      }
+    }
+  ]
+}

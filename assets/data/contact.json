@@ -1,0 +1,68 @@
+{
+  "title": "Contact Us",
+  "description": "Get in touch with us for any questions or support.",
+  "breadcrumb": [
+    {
+      "title": "Home",
+      "url": "/index.html"
+    },
+    {
+      "title": "Contact",
+      "url": "/pages/contact.html"
+    }
+  ],
+  "components": [
+    {
+      "type": "hero",
+      "id": "contact-hero",
+      "data": {
+        "title": "Hubungi Developer",
+        "subtitle": "Ada pertanyaan atau butuh bantuan?",
+        "description": "Jangan ragu untuk menghubungi jika ada hal yang ingin ditanyakan tentang platform pembelajaran ini.",
+        "buttons": []
+      }
+    },
+    {
+      "type": "text",
+      "id": "contact-info",
+      "data": {
+        "content": "<h2 class='text-2xl font-bold mb-4'>Tentang Developer</h2><p class='mb-4'>Platform pembelajaran mobile development ini dibuat oleh <strong>Faizal Qadri Trianto</strong> sebagai media pembelajaran untuk membantu belajar pengembangan aplikasi Android.</p><p class='mb-4'>Modul-modul ini disusun berdasarkan pengalaman dan best practices dalam mobile development.</p>",
+        "align": "left",
+        "size": "base"
+      }
+    },
+    {
+      "type": "card",
+      "id": "contact-methods",
+      "data": {
+        "title": "Hubungi Saya",
+        "columns": 1,
+        "cards": [
+          {
+            "title": "Website Portfolio",
+            "description": "Kunjungi website untuk melihat project lain dan informasi lebih lanjut tentang saya.",
+            "image": null,
+            "buttons": [
+              {
+                "text": "Kunjungi faizaltrianto.com",
+                "url": "https://faizaltrianto.com",
+                "icon": "fas fa-external-link-alt",
+                "primary": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "alert",
+      "id": "feedback-note",
+      "data": {
+        "type": "info",
+        "title": "Feedback & Saran",
+        "content": "Masukan dan saran Anda sangat berharga untuk perbaikan dan pengembangan modul pembelajaran ini. Terima kasih!",
+        "dismissible": true
+      }
+    }
+  ]
+}

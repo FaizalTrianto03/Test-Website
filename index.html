@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Modul Praktikum Mobile</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#FF6B35',
+                        'secondary-navy': '#1B263B',
+                        'accent-orange': '#FFB366',
+                        'dark-bg': '#0F1419',
+                        'code-light': '#F8F9FA',
+                        'code-dark': '#1E1E1E',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome untuk icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50">
+        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center space-x-3">
+                <div>
+                    <h1 class="text-lg font-bold text-gray-900 dark:text-white">Modul Praktikum</h1>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Mobile Development</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="flex-1 p-4 overflow-y-auto">
+            <ul class="space-y-2">
+                <li>
+                    <a href="./index.html" class="flex items-center px-3 py-2 text-sm font-medium bg-primary-orange text-white rounded-lg">
+                        <i class="fas fa-home mr-3"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="./modules.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                        <i class="fas fa-book mr-3"></i>
+                        Modules
+                    </a>
+                </li>
+                <li>
+                    <button class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg group" onclick="toggleNavGroup('praktikum')">
+                        <div class="flex items-center">
+                            <i class="fas fa-code mr-3 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300"></i>
+                            <span>Praktikum</span>
+                        </div>
+                        <i class="fas fa-chevron-down transform transition-transform duration-200" id="praktikum-chevron"></i>
+                    </button>
+                    <ul id="praktikum-children" class="ml-6 mt-2 space-y-1 hidden">
+                        <li>
+                            <a href="./modul/modul1.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                                <i class="fas fa-play-circle mr-3 text-gray-400"></i>
+                                Modul 1: Pengenalan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./modul/modul2.html" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                                <i class="fas fa-play-circle mr-3 text-gray-400"></i>
+                                Modul 2: Layout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+            <p class="text-xs text-gray-500 dark:text-gray-400 text-center">
+                © 2025 Faizal Qadri Trianto
+            </p>
+        </div>
+    </aside>
+
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
+
+    <!-- Main Content -->
+    <main class="lg:ml-64 min-h-screen">
+        <!-- Header -->
+        <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+            <div class="flex items-center justify-between px-4 py-3">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                </button>
+
+                <!-- Breadcrumb -->
+                <nav id="breadcrumb" class="flex items-center space-x-2 text-sm">
+                    <span class="text-orange-600 font-medium">Home</span>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="flex items-center space-x-3">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div id="page-content" class="p-6">
+            <div class="max-w-2xl mx-auto text-center py-20">
+                <h1 class="text-4xl font-bold mb-6">Selamat Datang!</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                    Platform pembelajaran untuk pengembangan aplikasi mobile Android dengan modul terstruktur dan interaktif.
+                </p>
+                <a href="/modules.html" class="inline-flex items-center px-8 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-lg font-semibold">
+                    <i class="fas fa-play mr-2"></i>
+                    Mulai Belajar
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="./assets/js/main.js"></script>
+    
+    <!-- Footer Component -->
+    <script src="./assets/components/footer.js"></script>
+</body>
+</html>

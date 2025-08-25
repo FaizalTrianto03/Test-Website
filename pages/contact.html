@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 1: Introduction to Android - Modul Praktikum Mobile</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary-orange': '#FF6B35',
+              'secondary-navy': '#1B263B',
+              'accent-orange': '#FFB366',
+              'dark-bg': '#0F1419',
+              'code-light': '#F8F9FA',
+              'code-dark': '#1E1E1E',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Font Awesome untuk icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js untuk syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body class="bg-white dark:bg-dark-bg text-gray-800 dark:text-white transition-colors duration-300">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-secondary-navy shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50">
+        <!-- Sidebar content akan di-render oleh JavaScript -->
+    </aside>
+    
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
+    
+    <!-- Main Content -->
+    <main class="lg:ml-64 min-h-screen">
+        <!-- Header -->
+        <header class="bg-white dark:bg-secondary-navy shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+            <div class="flex items-center justify-between px-4 py-3">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                </button>
+                
+                <!-- Breadcrumb -->
+                <nav id="breadcrumb" class="flex items-center space-x-2 text-sm">
+                    <!-- Breadcrumb akan di-render oleh JavaScript -->
+                </nav>
+                
+                <!-- Header Actions -->
+                <div class="flex items-center space-x-3">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Page Content -->
+        <div id="page-content" class="p-6">
+            <!-- Content akan di-render oleh JavaScript berdasarkan JSON -->
+        </div>
+        
+        <!-- Footer akan di-inject oleh footer.js -->
+    </main>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/share.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Footer Component -->
+    <script src="../assets/components/footer.js"></script>
+</body>
+</html>

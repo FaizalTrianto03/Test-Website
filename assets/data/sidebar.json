@@ -1,0 +1,94 @@
+{
+  "brand": {
+    "name": "Modul Praktikum",
+    "subtitle": "Mobile Development"
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "title": "Home",
+      "url": "/index.html",
+      "icon": "fas fa-home"
+    },
+    {
+      "id": "modules",
+      "title": "Learning Modules",
+      "icon": "fas fa-book-open",
+      "children": [
+        {
+          "id": "module1",
+          "title": "Modul 1: Introduction",
+          "url": "/modul/modul1.html",
+          "icon": "fas fa-play-circle"
+        },
+        {
+          "id": "module2",
+          "title": "Modul 2: Coming Soon",
+          "url": "/modul/comingsoon.html",
+          "icon": "fas fa-clock"
+        },
+        {
+          "id": "module3",
+          "title": "Modul 3: Coming Soon",
+          "url": "/modul/comingsoon.html",
+          "icon": "fas fa-clock"
+        },
+        {
+          "id": "module4",
+          "title": "Modul 4: Coming Soon",
+          "url": "/modul/comingsoon.html",
+          "icon": "fas fa-clock"
+        },
+        {
+          "id": "module5",
+          "title": "Modul 5: Coming Soon",
+          "url": "/modul/comingsoon.html",
+          "icon": "fas fa-clock"
+        },
+        {
+          "id": "module6",
+          "title": "Modul 6: Coming Soon",
+          "url": "/modul/comingsoon.html",
+          "icon": "fas fa-clock"
+        }
+      ]
+    },
+    {
+      "id": "all-modules",
+      "title": "All Modules",
+      "url": "/modules.html",
+      "icon": "fas fa-th-list"
+    },
+    {
+      "id": "resources",
+      "title": "Resources",
+      "icon": "fas fa-folder-open",
+      "children": [
+        {
+          "id": "documentation",
+          "title": "Documentation",
+          "url": "https://developer.android.com/docs",
+          "icon": "fas fa-file-alt"
+        },
+        {
+          "id": "tools",
+          "title": "Development Tools",
+          "url": "https://developer.android.com/studio",
+          "icon": "fas fa-tools"
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "About",
+      "url": "/pages/about.html",
+      "icon": "fas fa-info-circle"
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "url": "/pages/contact.html",
+      "icon": "fas fa-envelope"
+    }
+  ]
+}

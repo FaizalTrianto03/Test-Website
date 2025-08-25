@@ -1,0 +1,465 @@
+{
+  "title": "Modul 1: Flutter Widget Tree & State Management",
+  "components": [
+    {
+      "type": "moduleHeader",
+      "data": {
+        "title": "Flutter Widget Tree & State Management",
+        "moduleName": "Modul 1",
+        "description": "Memahami arsitektur UI Flutter berbasis widget, perbedaan StatelessWidget vs StatefulWidget, dan implementasi state management dasar."
+      }
+    },
+    {
+      "type": "info",
+      "data": {
+        "title": "Persiapan Sebelum Memulai",
+        "content": "Pastikan Flutter SDK sudah terinstall dan IDE (VS Code/Android Studio) sudah dikonfigurasi dengan plugin Flutter dan Dart.",
+        "type": "primary",
+        "shared": false
+      }
+    },
+    {
+      "type": "command",
+      "data": {
+        "title": "Setup Flutter Project",
+        "description": "Perintah untuk membuat dan menjalankan project Flutter baru",
+        "type": "terminal",
+        "shared": true,
+        "commands": [
+          {
+            "command": "flutter create widget_tree_demo",
+            "comment": "Membuat project Flutter baru"
+          },
+          {
+            "command": "cd widget_tree_demo",
+            "comment": "Masuk ke direktori project"
+          },
+          {
+            "command": "flutter run",
+            "comment": "Menjalankan aplikasi Flutter"
+          },
+          {
+            "command": "flutter doctor",
+            "output": "Doctor summary (to see all details, run flutter doctor -v):\n[✓] Flutter (Channel stable, 3.16.0)\n[✓] Android toolchain - develop for Android devices\n[✓] Chrome - develop for the web\n[✓] Visual Studio Code (version 1.84.2)",
+            "comment": "Memeriksa konfigurasi Flutter"
+          }
+        ]
+      }
+    },
+    {
+      "type": "material",
+      "data": {
+        "title": "Konsep Dasar Flutter Widget Tree",
+        "content": "<h3>Arsitektur UI Flutter Berbasis Widget</h3><p>Dalam dunia Flutter, semua yang Anda lihat di layar adalah widget. Mulai dari tombol, teks, ikon, hingga tata letak satu halaman penuh. Widget-widget ini tidak berdiri sendiri, melainkan tersusun dalam sebuah struktur pohon yang disebut Widget Tree.</p><p>Bayangkan sebuah pohon keluarga, di mana ada widget \"induk\" (parent) yang memiliki satu atau beberapa widget \"anak\" (child/children). Struktur inilah yang menjadi cetak biru (blueprint) dari seluruh tampilan aplikasi Anda.</p><h4>Karakteristik Widget Tree:</h4><ul><li><strong>Hierarkis:</strong> Widget tersusun dalam struktur berlapis seperti pohon</li><li><strong>Immutable:</strong> Widget bersifat tidak dapat diubah (immutable)</li><li><strong>Declarative:</strong> Anda mendeskripsikan bagaimana UI seharusnya terlihat</li><li><strong>Reactive:</strong> UI otomatis berubah ketika state berubah</li></ul>",
+        "level": "h2",
+        "shared": true
+      }
+    },
+    {
+      "type": "cardSection",
+      "data": {
+        "title": "StatelessWidget vs StatefulWidget",
+        "columns": 2,
+        "shared": true,
+        "cards": [
+          {
+            "title": "StatelessWidget",
+            "description": "Widget yang \"tidak memiliki state\" atau data internal yang bisa berubah. Seperti poster yang sudah dicetak - isinya tetap dan tidak akan pernah berubah selama aplikasi berjalan. Cocok untuk UI statis seperti label, ikon, atau teks yang tidak berubah."
+          },
+          {
+            "title": "StatefulWidget",
+            "description": "Widget yang \"memiliki state\" atau data internal yang dapat berubah sepanjang waktu. Seperti papan skor digital yang angkanya bisa berubah setiap kali ada gol. Cocok untuk UI dinamis seperti form, counter, atau animasi."
+          }
+        ]
+      }
+    },
+    {
+      "type": "material",
+      "data": {
+        "title": "Pengenalan Layout UI Flutter",
+        "content": "<h3>Peran Widget Layout dalam Flutter</h3><p>Setelah memahami konsep dasar widget, langkah selanjutnya adalah mempelajari bagaimana widget-widget ini dapat disusun untuk menciptakan antarmuka pengguna yang terstruktur dan estetis.</p><p>Di sinilah widget layout berperan. Widget layout adalah jenis widget khusus yang bertugas mengatur posisi, ukuran, dan tata letak widget lain di dalamnya.</p><h4>Prinsip Layout Flutter:</h4><ul><li><strong>Constraints go down:</strong> Parent memberikan batasan ukuran ke child</li><li><strong>Sizes go up:</strong> Child memberitahu parent ukuran yang diinginkan</li><li><strong>Parent sets position:</strong> Parent menentukan posisi child</li></ul>",
+        "level": "h2",
+        "shared": true
+      }
+    },
+    {
+      "type": "accordionSection",
+      "data": {
+        "title": "Widget Layout Dasar",
+        "allowMultiple": false,
+        "shared": true,
+        "items": [
+          {
+            "title": "Column - Layout Vertikal",
+            "content": "<p><strong>Fungsi:</strong> Menyusun widget-widget anaknya secara vertikal, dari atas ke bawah.</p><p><strong>Penggunaan:</strong> Cocok untuk membuat tata letak di mana elemen-elemen harus ditampilkan dalam satu kolom, seperti daftar atau form.</p><p><strong>Properti Utama:</strong></p><ul><li><code>mainAxisAlignment</code>: Mengatur posisi widget di sepanjang sumbu utama (vertikal)<ul><li>MainAxisAlignment.start - Posisi atas</li><li>MainAxisAlignment.center - Posisi tengah</li><li>MainAxisAlignment.end - Posisi bawah</li><li>MainAxisAlignment.spaceEvenly - Jarak sama rata</li></ul></li><li><code>crossAxisAlignment</code>: Mengatur posisi widget di sepanjang sumbu sekunder (horizontal)<ul><li>CrossAxisAlignment.start - Posisi kiri</li><li>CrossAxisAlignment.center - Posisi tengah</li><li>CrossAxisAlignment.end - Posisi kanan</li><li>CrossAxisAlignment.stretch - Memenuhi lebar</li></ul></li></ul>"
+          },
+          {
+            "title": "Row - Layout Horizontal",
+            "content": "<p><strong>Fungsi:</strong> Menyusun widget-widget anaknya secara horizontal, dari kiri ke kanan.</p><p><strong>Penggunaan:</strong> Cocok untuk membuat tata letak di mana elemen-elemen harus ditampilkan dalam satu baris, seperti tombol navigasi atau ikon.</p><p><strong>Properti Utama:</strong></p><ul><li><code>mainAxisAlignment</code>: Mengatur posisi widget di sepanjang sumbu utama (horizontal)<ul><li>MainAxisAlignment.start - Posisi kiri</li><li>MainAxisAlignment.center - Posisi tengah</li><li>MainAxisAlignment.end - Posisi kanan</li><li>MainAxisAlignment.spaceBetween - Jarak di antara</li></ul></li><li><code>crossAxisAlignment</code>: Mengatur posisi widget di sepanjang sumbu sekunder (vertikal)<ul><li>CrossAxisAlignment.start - Posisi atas</li><li>CrossAxisAlignment.center - Posisi tengah</li><li>CrossAxisAlignment.end - Posisi bawah</li><li>CrossAxisAlignment.stretch - Memenuhi tinggi</li></ul></li></ul>"
+          },
+          {
+            "title": "Container - Kotak Serbaguna",
+            "content": "<p><strong>Fungsi:</strong> Sebuah \"kotak serbaguna\" yang dapat digunakan untuk membungkus widget lain dengan properti tambahan.</p><p><strong>Penggunaan:</strong> Cocok untuk membuat elemen UI yang membutuhkan penyesuaian visual, seperti latar belakang berwarna atau batasan ukuran.</p><p><strong>Properti Utama:</strong></p><ul><li><code>color</code>: Memberikan warna latar belakang</li><li><code>width</code> dan <code>height</code>: Mengatur ukuran container</li><li><code>decoration</code>: Menambahkan dekorasi seperti bingkai atau bayangan<ul><li>BoxDecoration untuk border, borderRadius, boxShadow</li><li>Gradient untuk efek gradien warna</li></ul></li><li><code>margin</code>: Jarak luar container</li><li><code>padding</code>: Jarak dalam container</li><li><code>alignment</code>: Posisi child di dalam container</li></ul>"
+          },
+          {
+            "title": "Padding - Ruang Kosong",
+            "content": "<p><strong>Fungsi:</strong> Memberikan ruang kosong di sekeliling widget anaknya.</p><p><strong>Penggunaan:</strong> Cocok untuk mengatur jarak antara elemen UI agar terlihat lebih rapi dan terstruktur.</p><p><strong>Properti Utama:</strong></p><ul><li><code>padding</code>: Mengatur jumlah ruang kosong di setiap sisi<ul><li>EdgeInsets.all(16.0) - Sama di semua sisi</li><li>EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0) - Horizontal dan vertikal</li><li>EdgeInsets.only(left: 16.0, top: 8.0) - Sisi tertentu saja</li><li>EdgeInsets.fromLTRB(left, top, right, bottom) - Setiap sisi berbeda</li></ul></li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Contoh Column Widget",
+        "description": "Implementasi dasar Column untuk menyusun widget secara vertikal",
+        "filePath": "assets/code/modul1/column_example.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Contoh Row Widget",
+        "description": "Implementasi dasar Row untuk menyusun widget secara horizontal",
+        "filePath": "assets/code/modul1/row_example.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Contoh Container Widget",
+        "description": "Implementasi Container dengan berbagai properti styling",
+        "filePath": "assets/code/modul1/container_example.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Contoh Padding Widget",
+        "description": "Implementasi Padding untuk mengatur spacing antar elemen",
+        "filePath": "assets/code/modul1/padding_example.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "material",
+      "data": {
+        "title": "State Management pada Flutter",
+        "content": "<h3>setState vs External State</h3><p>Flutter dikenal karena kemampuannya untuk membangun antarmuka pengguna yang interaktif dan responsif. Salah satu elemen utama dalam membangun UI dinamis adalah state management.</p><p>State adalah data yang menentukan bagaimana suatu widget terlihat atau berperilaku pada waktu tertentu. Pertanyaannya adalah: Bagaimana cara memberitahu Flutter bahwa ada data yang berubah dan UI perlu diperbarui?</p><h4>Jenis-jenis State:</h4><ul><li><strong>Local State:</strong> Data yang hanya dibutuhkan oleh satu widget</li><li><strong>Global State:</strong> Data yang dibutuhkan oleh banyak widget</li><li><strong>Ephemeral State:</strong> State sementara seperti animasi</li><li><strong>App State:</strong> State yang bertahan sepanjang aplikasi berjalan</li></ul>",
+        "level": "h2",
+        "shared": true
+      }
+    },
+    {
+      "type": "accordionSection",
+      "data": {
+        "title": "Konsep State Management",
+        "allowMultiple": false,
+        "shared": true,
+        "items": [
+          {
+            "title": "setState() dan Batasannya",
+            "content": "<p>Di sinilah fungsi <code>setState()</code> berperan. Ketika Anda memanggil <code>setState()</code> di dalam sebuah StatefulWidget, Anda pada dasarnya mengirim sinyal ke Flutter: \"Hei, ada data di dalam widget ini yang baru saja saya ubah. Tolong gambar ulang bagian UI yang bergantung pada data tersebut!\"</p><p><strong>Keunggulan setState():</strong></p><ul><li>Sederhana dan mudah dipahami</li><li>Cocok untuk mengelola state lokal</li><li>Built-in dalam Flutter framework</li><li>Tidak memerlukan dependency tambahan</li></ul><p><strong>Batasan setState():</strong></p><ul><li>Tidak scalable untuk state global</li><li>Menyulitkan pengelolaan data yang dibagikan ke banyak widget</li><li>Dapat menyebabkan rebuild yang tidak efisien</li><li>Sulit untuk testing dan debugging pada aplikasi besar</li></ul><p><strong>Kapan menggunakan setState():</strong></p><ul><li>State sederhana dalam satu widget</li><li>Interaksi lokal seperti toggle button</li><li>Form input yang tidak kompleks</li><li>Animasi sederhana</li></ul>"
+          },
+          {
+            "title": "Konteks untuk State yang Lebih Kompleks",
+            "content": "<p>Bayangkan sebuah aplikasi e-commerce. Data seperti:</p><ul><li><strong>Status login pengguna:</strong> Dibutuhkan oleh halaman utama, halaman profil, dan halaman pengaturan</li><li><strong>Isi keranjang belanja:</strong> Dibutuhkan oleh halaman utama, halaman produk, dan halaman checkout</li><li><strong>Preferensi tema:</strong> Dibutuhkan oleh seluruh aplikasi untuk dark/light mode</li><li><strong>Data produk:</strong> Dibutuhkan oleh berbagai halaman untuk menampilkan informasi</li></ul><p>Menggunakan setState() untuk mengelola data seperti ini akan sangat merepotkan karena Anda harus mengoper data dari satu widget ke widget lainnya secara manual (prop drilling).</p><p><strong>Masalah Prop Drilling:</strong></p><ul><li>Kode menjadi sulit dibaca dan dipelihara</li><li>Widget yang tidak memerlukan data ikut menerima props</li><li>Perubahan struktur widget memerlukan refactoring besar</li><li>Testing menjadi kompleks</li></ul>"
+          },
+          {
+            "title": "Provider sebagai Solusi",
+            "content": "<p>Provider adalah sebuah paket Flutter yang memungkinkan Anda untuk \"menyediakan\" state di puncak widget tree, sehingga widget mana pun di bawahnya dapat mendengarkan dan menggunakan state tersebut tanpa perlu operan manual.</p><p><strong>Keunggulan Provider:</strong></p><ul><li><strong>Scalable:</strong> Cocok untuk aplikasi besar dengan banyak halaman</li><li><strong>Efisien:</strong> Mengurangi kompleksitas pengelolaan state global</li><li><strong>Reactive:</strong> UI akan diperbarui secara otomatis ketika state berubah</li><li><strong>Testable:</strong> Mudah untuk unit testing</li><li><strong>Performant:</strong> Hanya widget yang mendengarkan yang akan rebuild</li></ul><p><strong>Konsep Dasar Provider:</strong></p><ul><li><strong>ChangeNotifier:</strong> Class yang dapat memberitahu listener ketika ada perubahan</li><li><strong>ChangeNotifierProvider:</strong> Widget yang menyediakan ChangeNotifier ke widget tree</li><li><strong>Consumer:</strong> Widget yang mendengarkan perubahan dari Provider</li><li><strong>Provider.of():</strong> Method untuk mengakses data dari Provider</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "type": "command",
+      "data": {
+        "title": "Menambahkan Provider ke Project",
+        "description": "Perintah untuk menambahkan dependency Provider ke pubspec.yaml",
+        "type": "terminal",
+        "shared": true,
+        "commands": [
+          {
+            "command": "flutter pub add provider",
+            "output": "Resolving dependencies...\n+ provider 6.1.1\nChanged 3 dependencies!",
+            "comment": "Menambahkan provider package"
+          },
+          {
+            "command": "flutter pub get",
+            "output": "Running \"flutter pub get\" in widget_tree_demo...\nGot dependencies!",
+            "comment": "Mengunduh dependencies"
+          },
+          {
+            "command": "flutter pub deps",
+            "comment": "Melihat dependency tree"
+          }
+        ]
+      }
+    },
+    {
+      "type": "material",
+      "data": {
+        "title": "Implementasi Aplikasi Sederhana",
+        "content": "<p>Teori sudah cukup, saatnya praktik! Untuk memahami bagaimana state management bekerja dalam Flutter, kita akan membuat aplikasi paling klasik untuk mendemonstrasikan state: Aplikasi Counter.</p><p>Aplikasi ini akan menunjukkan perbedaan antara StatelessWidget dan StatefulWidget, serta bagaimana state dapat mengubah tampilan UI berdasarkan interaksi pengguna.</p><h4>Tahapan Implementasi:</h4><ol><li><strong>Stateless Counter:</strong> Memahami keterbatasan widget stateless</li><li><strong>Stateful Counter:</strong> Implementasi dengan setState()</li><li><strong>Provider Counter:</strong> Implementasi dengan external state management</li></ol>",
+        "level": "h2",
+        "shared": true
+      }
+    },
+    {
+      "type": "accordionSection",
+      "data": {
+        "title": "Implementasi Counter App",
+        "allowMultiple": false,
+        "shared": true,
+        "items": [
+          {
+            "title": "Versi Stateless: Memahami Keterbatasan",
+            "content": "<p>Pertama, kita akan mencoba membuat aplikasi counter menggunakan StatelessWidget. Anda akan melihat bahwa meskipun tombol dapat ditekan, angka di layar tidak akan pernah bertambah.</p><p>Hal ini membuktikan bahwa StatelessWidget hanya cocok untuk UI yang statis atau tidak bergantung pada perubahan data internal.</p><p><strong>Hasil yang Diharapkan:</strong></p><ul><li>Angka counter di layar tidak berubah meskipun tombol ditekan</li><li>StatelessWidget tidak memiliki mekanisme untuk memperbarui UI berdasarkan perubahan data</li><li>Method build() hanya dipanggil sekali saat widget pertama kali dibuat</li></ul><p><strong>Pembelajaran:</strong></p><ul><li>StatelessWidget bersifat immutable</li><li>Tidak ada cara untuk memicu rebuild dari dalam widget</li><li>Cocok untuk widget yang tidak berubah seperti Text, Icon, atau Image statis</li></ul>"
+          },
+          {
+            "title": "Versi Stateful: Menghidupkan Interaksi",
+            "content": "<p>Selanjutnya, kita akan mengubah aplikasi tersebut menjadi StatefulWidget. Dengan menambahkan sebuah variabel untuk menyimpan angka hitungan dan memanggil setState() setiap kali tombol ditekan, angka di layar pun akan diperbarui.</p><p>Di sini Anda akan melihat langsung kekuatan dari internal state dan fungsi setState().</p><p><strong>Hasil yang Diharapkan:</strong></p><ul><li>Angka counter di layar akan bertambah setiap kali tombol ditekan</li><li>Fungsi setState() memberitahu Flutter bahwa ada data yang berubah, sehingga UI perlu digambar ulang</li><li>Method build() dipanggil setiap kali setState() dipanggil</li></ul><p><strong>Pembelajaran:</strong></p><ul><li>StatefulWidget memiliki State object yang mutable</li><li>setState() memicu rebuild widget dan semua child-nya</li><li>State dapat bertahan selama widget lifecycle</li><li>Cocok untuk interaksi sederhana dalam satu widget</li></ul>"
+          },
+          {
+            "title": "Versi Provider: External State Management",
+            "content": "<p>Terakhir, kita akan mengimplementasikan counter menggunakan Provider untuk mendemonstrasikan external state management. Ini akan menunjukkan bagaimana state dapat dikelola di luar widget dan dibagikan ke multiple widget.</p><p><strong>Komponen yang Dibutuhkan:</strong></p><ul><li><strong>CounterModel:</strong> Class yang extends ChangeNotifier untuk mengelola state</li><li><strong>ChangeNotifierProvider:</strong> Widget untuk menyediakan CounterModel ke widget tree</li><li><strong>Consumer:</strong> Widget untuk mendengarkan perubahan dari CounterModel</li></ul><p><strong>Keunggulan Pendekatan Ini:</strong></p><ul><li>State terpisah dari UI logic</li><li>Dapat diakses dari widget mana pun dalam tree</li><li>Lebih mudah untuk testing</li><li>Scalable untuk aplikasi yang lebih besar</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "StatelessWidget Counter (Tidak Berfungsi)",
+        "description": "Contoh counter menggunakan StatelessWidget yang tidak dapat memperbarui UI",
+        "filePath": "assets/code/modul1/stateless_counter.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "StatefulWidget Counter (Berfungsi)",
+        "description": "Contoh counter menggunakan StatefulWidget dengan setState()",
+        "filePath": "assets/code/modul1/stateful_counter.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Provider Counter Model",
+        "description": "Model untuk mengelola state counter menggunakan ChangeNotifier",
+        "filePath": "assets/code/modul1/counter_provider.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Provider Counter App",
+        "description": "Implementasi counter menggunakan Provider untuk external state management",
+        "filePath": "assets/code/modul1/provider_counter.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Main App dengan setState",
+        "description": "Aplikasi utama menggunakan setState untuk state management",
+        "filePath": "assets/code/modul1/setstate_counter.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Static Layout Example",
+        "description": "Contoh layout statis menggunakan kombinasi berbagai widget layout",
+        "filePath": "assets/code/modul1/static_layout_example.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "table",
+      "data": {
+        "title": "Perbandingan StatelessWidget vs StatefulWidget",
+        "shared": false,
+        "headers": ["Aspek", "StatelessWidget", "StatefulWidget"],
+        "rows": [
+          ["Pembaruan UI", "Tidak dapat memperbarui UI", "Dapat memperbarui UI dengan setState()"],
+          ["Cocok untuk", "UI statis atau tidak interaktif", "UI dinamis atau interaktif"],
+          ["Pengelolaan State", "Tidak memiliki state internal", "Memiliki state internal"],
+          ["Performa", "Lebih ringan dan cepat", "Sedikit lebih berat karena lifecycle"],
+          ["Kompleksitas", "Sederhana", "Lebih kompleks dengan State class"],
+          ["Memory Usage", "Minimal", "Lebih besar karena State object"],
+          ["Lifecycle Methods", "Hanya build()", "initState(), dispose(), dll"],
+          ["Hot Reload", "Selalu reset", "Mempertahankan state"]
+        ]
+      }
+    },
+    {
+      "type": "material",
+      "data": {
+        "title": "Profiling Sederhana",
+        "content": "<h3>Mengapa Profiling Penting?</h3><p>Dalam pengembangan aplikasi Flutter, efisiensi adalah kunci untuk memastikan aplikasi berjalan mulus dan responsif. Salah satu aspek penting dalam efisiensi adalah meminimalkan rebuild widget yang tidak perlu.</p><p>Untuk itu, kita perlu memahami widget mana yang sedang digambar ulang dan seberapa sering hal itu terjadi. Proses ini disebut profiling, dan sangat penting untuk mengoptimalkan performa aplikasi.</p><h4>Mengapa Widget Rebuild?</h4><ul><li><strong>setState() dipanggil:</strong> Memicu rebuild widget dan semua child-nya</li><li><strong>Parent widget rebuild:</strong> Child widget ikut rebuild</li><li><strong>InheritedWidget berubah:</strong> Widget yang depend padanya rebuild</li><li><strong>MediaQuery berubah:</strong> Orientasi atau ukuran layar berubah</li></ul>",
+        "level": "h2",
+        "shared": true
+      }
+    },
+    {
+      "type": "accordionSection",
+      "data": {
+        "title": "Metode Profiling Flutter",
+        "allowMultiple": false,
+        "shared": true,
+        "items": [
+          {
+            "title": "Memanfaatkan debugPrint()",
+            "content": "<p>Cara paling sederhana untuk melacak rebuild widget adalah dengan menggunakan perintah <code>debugPrint()</code> di dalam metode build() sebuah widget. Setiap kali widget tersebut digambar ulang, pesan akan muncul di konsol.</p><p><strong>Implementasi:</strong></p><pre><code>@override\nWidget build(BuildContext context) {\n  debugPrint('MyWidget is rebuilding');\n  return Container(...);\n}</code></pre><p><strong>Hasil:</strong></p><ul><li>Setiap kali widget digambar ulang, pesan akan muncul di konsol</li><li>Anda dapat melacak frekuensi dan waktu rebuild untuk widget tertentu</li><li>Berguna untuk debugging masalah performa</li></ul><p><strong>Tips:</strong></p><ul><li>Gunakan pesan yang deskriptif untuk setiap widget</li><li>Tambahkan timestamp untuk melacak waktu rebuild</li><li>Hapus debugPrint() sebelum release ke production</li></ul>"
+          },
+          {
+            "title": "Hot Reload vs Hot Restart",
+            "content": "<p>Dalam Flutter, ada dua cara utama untuk memuat ulang aplikasi saat Anda melakukan perubahan kode:</p><p><strong>Hot Reload (Ctrl+S atau r):</strong></p><ul><li>Memuat ulang perubahan kode dengan cepat tanpa mereset state aplikasi</li><li>Cocok untuk perbaikan UI, seperti perubahan tata letak, warna, atau teks</li><li>State aplikasi tetap dipertahankan</li><li>Proses sangat cepat (biasanya < 1 detik)</li><li>Tidak dapat menangani perubahan pada initState() atau main()</li></ul><p><strong>Hot Restart (Ctrl+Shift+S atau R):</strong></p><ul><li>Memulai ulang seluruh aplikasi dan mereset semua state</li><li>Dibutuhkan jika ada perubahan pada logika state awal atau struktur aplikasi</li><li>Menjalankan ulang main() function</li><li>Lebih lambat dari Hot Reload</li><li>Diperlukan untuk perubahan pada enum, global variables, atau main()</li></ul><p><strong>Kapan menggunakan masing-masing:</strong></p><ul><li><strong>Hot Reload:</strong> Perubahan UI, styling, layout</li><li><strong>Hot Restart:</strong> Perubahan logic, state initialization, dependencies</li></ul>"
+          },
+          {
+            "title": "Flutter DevTools",
+            "content": "<p>Untuk analisis yang lebih mendalam, Flutter menyediakan alat bernama DevTools. Alat ini memiliki berbagai fitur yang berguna untuk profiling dan debugging aplikasi Flutter.</p><p><strong>Cara Mengakses DevTools:</strong></p><ol><li>Jalankan aplikasi Flutter dalam debug mode</li><li>Buka browser dan akses URL yang ditampilkan di console</li><li>Atau gunakan command: <code>flutter pub global activate devtools</code></li></ol><p><strong>Fitur Utama DevTools:</strong></p><ul><li><strong>Flutter Inspector:</strong> Memvisualisasikan widget tree aplikasi Anda<ul><li>Melihat hierarki widget secara visual</li><li>Inspect properties dari setiap widget</li><li>Debug layout issues</li></ul></li><li><strong>Performance View:</strong> Menganalisis performa aplikasi<ul><li>Frame rendering time</li><li>GPU dan CPU usage</li><li>Memory usage</li></ul></li><li><strong>Memory View:</strong> Monitoring penggunaan memory</li><li><strong>Network View:</strong> Monitoring network requests</li></ul><p><strong>Repaint Rainbow:</strong></p><ul><li>Memberikan warna berbeda pada layer-layer widget setiap kali mereka digambar ulang</li><li>Sangat membantu untuk mendeteksi rebuild yang tidak perlu</li><li>Dapat diaktifkan melalui DevTools atau dengan menambahkan flag debug</li></ul>"
+          }
+        ]
+      }
+    },
+    {
+      "type": "command",
+      "data": {
+        "title": "Flutter DevTools Commands",
+        "description": "Perintah untuk mengaktifkan dan menggunakan Flutter DevTools",
+        "type": "terminal",
+        "shared": true,
+        "commands": [
+          {
+            "command": "flutter pub global activate devtools",
+            "comment": "Mengaktifkan DevTools secara global"
+          },
+          {
+            "command": "flutter run --debug",
+            "comment": "Menjalankan aplikasi dalam debug mode"
+          },
+          {
+            "command": "dart devtools",
+            "output": "Serving DevTools at http://127.0.0.1:9100",
+            "comment": "Membuka DevTools di browser"
+          },
+          {
+            "command": "flutter run --profile",
+            "comment": "Menjalankan aplikasi dalam profile mode untuk performance testing"
+          }
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Contoh Profiling dengan debugPrint()",
+        "description": "Cara melacak rebuild widget menggunakan debugPrint()",
+        "filePath": "assets/code/modul1/profiling_widget.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Main App Entry Point",
+        "description": "File main.dart sebagai entry point aplikasi Flutter",
+        "filePath": "assets/code/modul1/main.dart",
+        "language": "dart",
+        "shared": true
+      }
+    },
+    {
+      "type": "code",
+      "data": {
+        "title": "Pubspec Configuration",
+        "description": "Konfigurasi dependencies dalam pubspec.yaml",
+        "filePath": "assets/code/modul1/pubspec.yaml",
+        "language": "yaml",
+        "shared": true
+      }
+    },
+    {
+      "type": "info",
+      "data": {
+        "title": "Tips Optimasi Performa",
+        "content": "<ol><li><strong>Gunakan const Widget:</strong> Untuk widget yang tidak pernah berubah, gunakan const constructor untuk menghindari rebuild yang tidak perlu.</li><li><strong>Minimalkan setState():</strong> Hindari memanggil setState() untuk seluruh widget tree. Pisahkan state ke widget yang lebih kecil.</li><li><strong>Widget Separation:</strong> Pisahkan widget menjadi bagian-bagian kecil agar hanya bagian yang relevan yang digambar ulang.</li><li><strong>Use Keys Wisely:</strong> Gunakan Key untuk membantu Flutter mengidentifikasi widget yang sama di rebuild.</li><li><strong>Avoid Heavy Operations:</strong> Jangan lakukan operasi berat di dalam method build().</li></ol>",
+        "type": "success",
+        "shared": false
+      }
+    },
+    {
+      "type": "video",
+      "data": {
+        "title": "Flutter Widget Tree Explained",
+        "description": "Video penjelasan mendalam tentang konsep Widget Tree dalam Flutter dan bagaimana state management bekerja",
+        "videoId": "wE7khGHVkYY",
+        "shared": true
+      }
+    },
+    {
+      "type": "material",
+      "data": {
+        "title": "Rangkuman Modul 1",
+        "content": "<h3>Apa yang Telah Anda Pelajari</h3><p>Selamat! Anda telah berhasil menyelesaikan Modul 1 tentang Flutter Widget Tree & State Management. Mari kita rangkum poin-poin penting yang telah dipelajari:</p><h4>Konsep Utama:</h4><ul><li><strong>Widget Tree:</strong> Struktur hierarkis yang menjadi dasar UI Flutter</li><li><strong>StatelessWidget vs StatefulWidget:</strong> Perbedaan fundamental dalam pengelolaan data UI</li><li><strong>State Management:</strong> Cara mengelola dan memperbarui data aplikasi</li><li><strong>Layout Widgets:</strong> Column, Row, Container, dan Padding untuk mengatur tata letak</li></ul><h4>Keterampilan Praktis:</h4><ul><li>Membuat aplikasi counter sederhana</li><li>Menggunakan setState() untuk state lokal</li><li>Implementasi Provider untuk state management yang lebih kompleks</li><li>Profiling dan debugging performa aplikasi</li></ul><h4>Best Practices:</h4><ul><li>Kapan menggunakan StatelessWidget vs StatefulWidget</li><li>Cara mengoptimalkan performa dengan const widgets</li><li>Penggunaan DevTools untuk debugging</li><li>Pemisahan concerns dalam state management</li></ul>",
+        "level": "h2",
+        "shared": true
+      }
+    },
+    {
+      "type": "cardSection",
+      "data": {
+        "title": "Langkah Selanjutnya",
+        "columns": 3,
+        "shared": false,
+        "cards": [
+          {
+            "title": "Modul 2: Advanced Layouts",
+            "description": "Pelajari layout yang lebih kompleks seperti Stack, Positioned, GridView, dan ListView untuk membuat UI yang lebih sophisticated."
+          },
+          {
+            "title": "Modul 3: Navigation & Routing",
+            "description": "Kuasai navigasi antar halaman, passing data, dan implementasi routing yang efisien dalam aplikasi Flutter."
+          },
+          {
+            "title": "Modul 4: Advanced State Management",
+            "description": "Dalami state management dengan Bloc, Riverpod, dan pola-pola advanced lainnya untuk aplikasi skala enterprise."
+          }
+        ]
+      }
+    },
+    {
+      "type": "info",
+      "data": {
+        "title": "🎉 Selamat! Anda telah menyelesaikan Modul 1",
+        "content": "Anda telah berhasil mempelajari dasar-dasar Flutter Widget Tree dan State Management. Pengetahuan ini menjadi fondasi yang kuat untuk mempelajari konsep-konsep Flutter yang lebih advanced. Lanjutkan ke Modul 2 untuk mempelajari tentang Layout dan UI Components yang lebih kompleks!",
+        "type": "success",
+        "shared": false
+      }
+    }
+  ]
+}
+

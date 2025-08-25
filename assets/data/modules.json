@@ -1,0 +1,79 @@
+{
+  "title": "Learning Modules",
+  "description": "Pilih modul pembelajaran sesuai dengan progress dan kebutuhan Anda. Setiap modul dirancang untuk memberikan pemahaman yang komprehensif tentang topik tertentu.",
+  "modules": [
+    {
+      "id": "module1",
+      "title": "Flutter Widget Tree & State Management",
+      "description": "Memahami konsep dasar Flutter Widget Tree, perbedaan StatelessWidget vs StatefulWidget, layout UI dasar, dan pengenalan state management dengan setState() serta Provider. Modul ini mencakup implementasi aplikasi counter sederhana dan teknik profiling dasar.",
+      "url": "/modul/modul1.html",
+      "image": "./assets/images/module1.png",
+      "tags": ["Flutter", "Widget Tree", "StatelessWidget", "StatefulWidget", "setState", "Provider"],
+      "status": "available",
+      "objectives": [
+        "Memahami arsitektur Flutter Widget Tree",
+        "Menguasai perbedaan StatelessWidget dan StatefulWidget",
+        "Menggunakan layout dasar: Column, Row, Container, Padding",
+        "Implementasi state management dengan setState()",
+        "Pengenalan Provider untuk state management eksternal",
+        "Membuat aplikasi Counter sederhana",
+        "Melakukan profiling sederhana dengan debugPrint() dan DevTools"
+      ]
+    },
+    {
+      "id": "module2",
+      "title": "Coming Soon",
+      "description": "Modul ini sedang dalam tahap pengembangan. Stay tuned!",
+      "url": "/modul/comingsoon.html",
+      "image": "./assets/images/module2.png",
+      "tags": ["Coming Soon"],
+      "status": "coming_soon",
+      "objectives": []
+    },
+    {
+      "id": "module3",
+      "title": "Coming Soon",
+      "description": "Modul ini sedang dalam tahap pengembangan. Stay tuned!",
+      "url": "/modul/comingsoon.html",
+      "image": "./assets/images/module3.png",
+      "tags": ["Coming Soon"],
+      "status": "coming_soon",
+      "objectives": []
+    },
+    {
+      "id": "module4",
+      "title": "Coming Soon",
+      "description": "Modul ini sedang dalam tahap pengembangan. Stay tuned!",
+      "url": "/modul/comingsoon.html",
+      "image": "./assets/images/module4.png",
+      "tags": ["Coming Soon"],
+      "status": "coming_soon",
+      "objectives": []
+    },
+    {
+      "id": "module5",
+      "title": "Coming Soon",
+      "description": "Modul ini sedang dalam tahap pengembangan. Stay tuned!",
+      "url": "/modul/comingsoon.html",
+      "image": "./assets/images/module5.png",
+      "tags": ["Coming Soon"],
+      "status": "coming_soon",
+      "objectives": []
+    },
+    {
+      "id": "module6",
+      "title": "Coming Soon",
+      "description": "Modul ini sedang dalam tahap pengembangan. Stay tuned!",
+      "url": "/modul/comingsoon.html",
+      "image": "./assets/images/module6.png",
+      "tags": ["Coming Soon"],
+      "status": "coming_soon",
+      "objectives": []
+    }
+  ],
+  "stats": {
+    "totalModules": 6,
+    "availableModules": 1,
+    "comingSoonModules": 5
+  }
+}

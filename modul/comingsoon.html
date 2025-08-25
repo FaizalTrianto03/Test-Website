@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Modul Praktikum Mobile</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary-orange': '#FF6B35',
+              'secondary-navy': '#1B263B',
+              'accent-orange': '#FFB366',
+              'dark-bg': '#0F1419',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white dark:bg-dark-bg text-gray-800 dark:text-white transition-colors duration-300">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-secondary-navy shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50">
+        <!-- Sidebar content akan di-render oleh JavaScript -->
+    </aside>
+    
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
+    
+    <!-- Main Content -->
+    <main class="lg:ml-64 min-h-screen">
+        <!-- Header -->
+        <header class="bg-white dark:bg-secondary-navy shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+            <div class="flex items-center justify-between px-4 py-3">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                </button>
+                
+                <!-- Breadcrumb -->
+                <nav class="flex items-center space-x-2 text-sm">
+                    <a href="../index.html" class="text-gray-500 dark:text-gray-400 hover:text-primary-orange transition-colors">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                    <a href="../modules.html" class="text-gray-500 dark:text-gray-400 hover:text-primary-orange transition-colors">Modules</a>
+                    <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                    <span class="text-gray-700 dark:text-gray-300 font-medium">Coming Soon</span>
+                </nav>
+                
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Coming Soon Content -->
+        <div class="flex items-center justify-center min-h-[calc(100vh-200px)] px-4">
+            <div class="text-center max-w-lg mx-auto">
+                <!-- Animated Icon -->
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-primary-orange to-accent-orange rounded-full mb-8 shadow-lg">
+                    <i class="fas fa-clock text-white text-3xl animate-pulse"></i>
+                </div>
+                
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    Coming Soon
+                </h1>
+                
+                <!-- Description -->
+                <div class="space-y-4 mb-10">
+                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                        Modul ini sedang dalam tahap pengembangan dan akan segera hadir!
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Kami sedang mempersiapkan konten pembelajaran yang berkualitas untuk Anda. 
+                        Stay tuned untuk update selanjutnya! 🚀
+                    </p>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="../modules.html" 
+                       class="inline-flex items-center px-6 py-3 bg-primary-orange hover:bg-orange-600 text-white font-medium rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Kembali ke Modules
+                    </a>
+                    
+                    <a href="../index.html" 
+                       class="inline-flex items-center px-6 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg transition-all duration-300">
+                        <i class="fas fa-home mr-2"></i>
+                        Home
+                    </a>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        <!-- Footer akan di-inject oleh footer.js -->
+    </main>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Footer Component -->
+    <script src="../assets/components/footer.js"></script>
+</body>
+</html>
